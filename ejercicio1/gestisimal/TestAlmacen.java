@@ -25,6 +25,7 @@ public class TestAlmacen {
   private static Almacen almacen = new Almacen();
   private static Menu menu = new Menu("Almacen", new String[] { "Listado", "Alta", "Baja", "Modificación",
       "Entrada de mercancía", "Salida de mercancía", "Salir" });
+  private static Menu menuIva = new Menu("Elija el tipo de iva:", new String[] { "General", "Reducido", "Superreducido", "Salir" });
 
   public static void main(String[] args) {
     int opcion = 0;
@@ -63,9 +64,10 @@ public class TestAlmacen {
     } while (opcion != 7);
 
   }
+  
+  
 
   public static Iva elegirIva() {
-    Menu menuIva = new Menu("Elija el tipo de iva:", new String[] { "General", "Reducido", "Superreducido", "Salir" });
     int opcion = 0;
 
     opcion = menuIva.gestionar(); // Pide al usuario introducir un numero para escoger la opcion
@@ -96,18 +98,10 @@ public class TestAlmacen {
   }
 
   static void borrar() {
-    try {
-
-      System.out.println("\n" + almacen);
-      int codigo = Teclado.leerEntero("\nIntroduce el codigo del articulo que quieras borrar del almacen: ");
-
-      almacen.get(codigo);
-      almacen.borrarArticulo(codigo);
-      System.out.println("\nArticulo borrado correctamente\n");
-
-    } catch (CodigoNoValidoException e) {
-      System.err.println(e.getMessage());
-    }
+    System.out.println("\n" + almacen);
+    
+    almacen.borrarArticulo(Teclado.leerEntero());
+    System.out.println("\nArticulo borrado correctamente\n");
 
   }
 
