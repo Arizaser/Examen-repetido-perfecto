@@ -40,7 +40,7 @@ public class Articulo {
 		setPrecioVenta(precioVenta);
 		setStock(stock);
 		setIva(iva);
-		setCodigo(codigo);
+		setCodigo();
 	}
 
 	Articulo(int codigo) {
@@ -51,7 +51,7 @@ public class Articulo {
 		return iva;
 	}
 
-	void setIva(Iva iva) throws IvaInvalidoException {
+	private void setIva(Iva iva) throws IvaInvalidoException {
 		if (iva == null) {
 			throw new IvaInvalidoException("\nIVA no valido\n");
 		}
@@ -62,7 +62,7 @@ public class Articulo {
 		return codigo;
 	}
 
-	void setCodigo(int codigo) {
+	private void setCodigo() {
 		this.codigo = Articulo.cont++;
 	}
 
@@ -70,7 +70,7 @@ public class Articulo {
 		return descripcion;
 	}
 
-	void setDescripcion(String descripcion) {
+	private void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
@@ -78,7 +78,7 @@ public class Articulo {
 		return precioCompra;
 	}
 
-	void setPrecioCompra(double precioCompra) throws ValorNoValidoException {
+	private void setPrecioCompra(double precioCompra) throws ValorNoValidoException {
 		if (precioCompra < 0) {
 			throw new ValorNoValidoException("\nEl precio de compra no puede ser menor de 0\n");
 		}
@@ -91,7 +91,7 @@ public class Articulo {
 		return precioVenta;
 	}
 
-	void setPrecioVenta(double precioVenta) throws ValorNoValidoException {
+	private void setPrecioVenta(double precioVenta) throws ValorNoValidoException {
 		if (precioVenta < 0) {
 			throw new ValorNoValidoException("\nEl precio de venta no puede ser menor de 0\n");
 		}
@@ -103,7 +103,7 @@ public class Articulo {
 		return stock;
 	}
 
-	void setStock(int stock) throws ValorNoValidoException {
+	private void setStock(int stock) throws ValorNoValidoException {
 		if (stock < 0) {
 			throw new ValorNoValidoException("\nEl stock no puede ser menor de 0\n");
 		}
