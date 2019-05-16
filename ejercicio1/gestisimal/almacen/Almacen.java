@@ -17,10 +17,6 @@ public class Almacen {
 	    throws ArticuloExisteException, ValorNoValidoException, IvaInvalidoException {
 		Articulo articulo = new Articulo(descripcion, precioCompra, precioVenta, stock, iva);
 
-		if (arraylist.contains(articulo)) {
-			throw new ArticuloExisteException("\nEl articulo ya existe en el almacen\n");
-		}
-
 		arraylist.add(articulo);
 	}
 
