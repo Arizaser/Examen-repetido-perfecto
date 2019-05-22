@@ -20,31 +20,36 @@ excepción y capturarla.
 
 class Rectangulo:
 
-    def __init__(self, alt, anch):
-        self.alto=alt
-        self.ancho=anch
-        self.set_alto(alt)
-        self.set_ancho(anch)
+    def __init__(self, ancho, alto):
+        Rectangulo.__verifica_lado(ancho)
+        Rectangulo.__verifica_lado(alto)
+        self.__ancho = ancho
+        self.__alto = alto
 
-    def get_ancho(self):
-        return self.ancho
+   @property
+    def ancho(self):
+        return self.__ancho
+    
+    @ancho.setter
+    def ancho(self, ancho):
+        Rectangulo.__verifica_lado(ancho)
+        self.__ancho = ancho
 
-    def get_alto(self):
-        return self.alto
+    @property
+    def alto(self):
+        return self.__alto
+    
+    @alto.setter
+    def alto(self, alto):
+        Rectangulo.__verifica_lado(alto)
+        self.__alto = alto
 
-    def set_ancho(self, anch):
-        if(self.ancho<=0):
-            raise ArithmeticError("El ancho no puede ser igual o menor a 0")
-        elif(self.ancho>10):
-            raise ArithmeticError("El ancho no puede ser mayor que 10")
-        self.ancho=anch
-
-    def set_alto(self, alt):
-        if (self.alto <= 0):
-            raise ArithmeticError("El alto no puede ser igual o menor a 0")
-        elif (self.alto > 10):
-            raise ArithmeticError("El alto no puede ser mayor que 10")
-        self.alto = alt
+    @staticmethod
+    def __verifica_lado(num):
+        if not isinstance(num, int):  # lado no entero
+            raise TypeError("Lado no entero", num)  # Lanzo esta excepcion si el parametro introducido no es un entero.
+        if (num <= 0 or num > 10):
+            raise ArithmeticError()  # Lanzo esta excepcion que es similar al ArithmeticException de Java
 
     def __str__(self):
         resultado = ""
