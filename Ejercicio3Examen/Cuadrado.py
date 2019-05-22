@@ -3,19 +3,18 @@
 from Ejercicio3Examen.Rectangulo import Rectangulo
 
 class Cuadrado(Rectangulo):
-    def __init__(self, l):
-        super().__init__(l, l)
-        self.lado = l
+    def __init__(self, lado):
+        super().__init__(lado, lado)
+        #elf.lado = lado
 
-    def get_lado(self):
-        return self.lado
-
-    def set_lado(self, l):
-        if(self.lado<=0):
-            raise ArithmeticError("El lado no puede ser igual o menor a 0")
-        elif(self.lado>10):
-            raise ArithmeticError("El lado no puede ser mayor que 10")
-        self.lado=l
+    def lado(self):
+        #return self.__lado
+        return self.ancho
+    
+    @lado.setter
+    def lado(self, lado):
+        self.alto = lado
+        self.ancho = lado
 
     '''Sobrecarga de operadores >'''
     def __gt__(self, other):
