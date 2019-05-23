@@ -21,8 +21,6 @@ excepción y capturarla.
 class Rectangulo:
 
     def __init__(self, ancho, alto):
-        verifica_lado(ancho)
-        verifica_lado(alto)
         self.ancho = ancho
         self.alto = alto
 
