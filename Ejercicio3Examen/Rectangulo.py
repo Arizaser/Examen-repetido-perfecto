@@ -43,7 +43,7 @@ class Rectangulo:
         self.__alto = alto
         
 '''
-    verificarLado
+    verifica_Lado
 '''
 
     @staticmethod
