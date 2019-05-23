@@ -99,7 +99,7 @@ public class TestAlmacen {
 
   static void borrar() {
     System.out.println("\n" + almacen);
-    
+    System.out.println("Codigo de articulo a borrar");
     almacen.borrarArticulo(Teclado.leerEntero());
     System.out.println("\nArticulo borrado correctamente\n");
 
