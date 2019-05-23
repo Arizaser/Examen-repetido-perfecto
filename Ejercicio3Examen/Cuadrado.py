@@ -5,7 +5,8 @@ from Ejercicio3Examen.Rectangulo import Rectangulo
 class Cuadrado(Rectangulo):
     def __init__(self, lado):
         super().__init__(lado, lado)
-
+        
+    @property
     def lado(self):
         return self.ancho
     
